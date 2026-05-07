@@ -6,8 +6,8 @@ Chat with open-source AI models on your phone. No account, no subscription. Mode
 
 | Platform | File | Size |
 |----------|------|------|
-| Android | [Bud-v1.0.1.apk](./Bud-v1.0.1.apk) | ~70 MB |
-| iOS | [Bud-v1.0.1.ipa](./Bud-v1.0.1.ipa) | ~13 MB |
+| Android | [Bud-v1.0.2.apk](./Bud-v1.0.2.apk) | ~70 MB |
+| iOS | [Bud-v1.0.2.ipa](./Bud-v1.0.2.ipa) | ~13 MB |
 
 ## Install on Android
 
@@ -54,4 +54,4 @@ Bud includes a **Buds** feature: a shared catalog of AI personas with custom nam
 
 ## Version
 
-`v1.0.1` released May 2025
+`v1.0.2` released May 2026
