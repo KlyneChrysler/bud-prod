@@ -1,86 +1,57 @@
 # Bud: Offline AI Companion
 
-Bud is a mobile app that lets you run AI conversations directly on your device. No subscription, no account required. You download an AI model once and it runs fully on your phone.
+Chat with open-source AI models on your phone. No account, no subscription. Models run on-device using [llama.cpp](https://github.com/ggml-org/llama.cpp).
 
 ## Download
 
 | Platform | File | Size |
 |----------|------|------|
-| Android  | [Bud-v1.0.1.apk](./Bud-v1.0.1.apk) | ~70 MB |
-| iOS      | [Bud-v1.0.1.ipa](./Bud-v1.0.1.ipa) | ~13 MB |
+| Android | [Bud-v1.0.1.apk](./Bud-v1.0.1.apk) | ~70 MB |
+| iOS | [Bud-v1.0.1.ipa](./Bud-v1.0.1.ipa) | ~13 MB |
 
 ## Install on Android
 
-1. Download `Bud-v1.0.1.apk` to your Android device.
-2. Open your file manager and tap the APK.
-3. If prompted, go to **Settings > Install unknown apps** and allow your file manager or browser.
-4. Tap **Install** and open the app.
-5. On first launch, go to the **Models** tab and download an AI model (requires Wi-Fi, around 1 to 4 GB depending on the model).
+1. Download `Bud-v1.0.1.apk` to your device.
+2. Tap the file in your file manager.
+3. If prompted, enable **Install unknown apps** for your file manager or browser.
+4. Tap **Install**.
 
-Tested on Android 7.0 and above (API 24+). ARM64 devices only, which covers all modern Android phones.
+Requires Android 7.0+ (API 24), ARM64 only. All modern Android phones qualify.
 
 ## Install on iOS
 
-iOS does not allow installing IPA files from outside the App Store without a workaround. Choose one of the options below.
+iOS requires sideloading. Use one of these free tools:
 
-### Option A: AltStore (free, no jailbreak)
+**AltStore** ([altstore.io](https://altstore.io))
+1. Install AltStore on your Mac or PC.
+2. Connect your iPhone via USB.
+3. In AltStore, tap **+** and select `Bud-v1.0.1.ipa`.
+4. Sign in with your Apple ID (used for local signing only).
+5. On your iPhone, go to **Settings > General > VPN & Device Management** and trust the certificate.
 
-1. Install [AltStore](https://altstore.io) on your Mac or PC.
-2. Connect your iPhone via USB and trust the computer.
-3. In AltStore on your computer, click **+** and select `Bud-v1.0.1.ipa`.
-4. Sign in with your Apple ID when prompted. It is used only for local signing and no data is sent to us.
-5. Open Bud on your iPhone.
-6. Go to **Settings > General > VPN & Device Management** and trust the developer certificate.
-
-### Option B: Sideloadly (free, no jailbreak)
-
-1. Download [Sideloadly](https://sideloadly.io) on your Mac or PC.
-2. Connect your iPhone, select `Bud-v1.0.1.ipa`, and click **Start**.
+**Sideloadly** ([sideloadly.io](https://sideloadly.io))
+1. Install Sideloadly on your Mac or PC.
+2. Connect your iPhone, select the IPA, and click **Start**.
 3. Enter your Apple ID when prompted.
 4. Trust the certificate on your iPhone under **Settings > General > VPN & Device Management**.
 
-### Option C: Register your UDID
+Free Apple IDs need re-sideloading every 7 days. Paid developer accounts last 1 year.
 
-If you want a build signed directly for your device with no re-signing needed, send us your device UDID and we will add it to the provisioning profile.
+**Note:** On-device AI inference on iOS has not been fully tested. The app installs and the UI works, but model loading via llama.cpp on iOS is unverified. Android is the recommended platform for running local models.
 
-**Re-signing note:** Free Apple IDs expire the sideload every 7 days. Paid developer accounts last 1 year. You will need to re-sideload when it expires.
+## First Launch
 
-## What Bud Does
+Go to the **Models** tab and download a GGUF model from Hugging Face. Requires Wi-Fi and storage space depending on the model you choose.
 
-- Runs open-source LLM models (Llama, Mistral, and compatible GGUF models) directly on your device using [llama.cpp](https://github.com/ggml-org/llama.cpp).
-- No data leaves your device during inference. The model runs entirely on-device.
-- You pick and download models from Hugging Face directly within the app.
+## Cloud Sync (Buds Catalog)
 
-## Honest Note on Cloud Sync for AI Agents
+Bud includes a **Buds** feature: a shared catalog of AI personas with custom names, icons, and system prompts. This is the only part of the app that touches a server.
 
-Bud has a **Buds** feature: a catalog of AI personas with custom system prompts, names, and icons. This catalog is synced from a shared [Supabase](https://supabase.com) database.
-
-Here is what that means honestly:
-
-**The Buds catalog is fetched from our Supabase project** on first launch and periodically in the background. This is a network request to our server.
-
-**Your conversations are never sent anywhere.** Chat history stays on your device.
-
-**Custom Buds you create** can be published to the shared catalog, making them visible to all users. This uploads the bud's name, description, system prompt, and icon to our Supabase database. There is no moderation in the current version. What you publish goes live immediately.
-
-**If you do not create or publish a Bud**, nothing from your device is uploaded.
-
-The Supabase project is `cvjjmfqgpnsshcekffmm`, hosted on Supabase's US infrastructure. We do not control Supabase's own data handling. See [Supabase's privacy policy](https://supabase.com/privacy) for details.
-
-There is no authentication. All catalog reads and writes use the anonymous Supabase key embedded in the app. This means anyone with the key could read the catalog. Treat anything you publish as public.
-
-Delta sync runs in the background after launch to pull catalog updates. It makes a small HTTP request with a timestamp filter. No device identifiers are sent.
-
-**In short:** your AI conversations are private and local. The only cloud component is the shared Bud persona catalog, and only content you explicitly choose to publish is uploaded.
-
-## Requirements
-
-| | Android | iOS |
-|---|---|---|
-| Minimum OS | Android 7.0 (API 24) | iOS 16+ |
-| Architecture | ARM64 | ARM64 |
-| Storage | 500 MB app + model (1 to 8 GB) | 500 MB app + model |
-| RAM recommended | 4 GB+ | 4 GB+ |
+- The catalog is fetched from a shared Supabase database on launch and synced periodically in the background.
+- Your conversations stay on your device and are never sent anywhere.
+- If you create and publish a Bud, its name, description, system prompt, and icon are uploaded to the shared database and are visible to all users immediately. There is no moderation.
+- If you never publish a Bud, nothing from your device is uploaded.
+- There is no login. The app uses an anonymous Supabase key. Treat anything you publish as fully public.
 
 ## Version
 
