@@ -1,4 +1,4 @@
-# Bud — Offline AI
+# Bud: Offline AI
 
 Private, on-device AI for iOS and Android. No cloud. No subscriptions. Nothing leaves your phone.
 
@@ -16,7 +16,7 @@ Private, on-device AI for iOS and Android. No cloud. No subscriptions. Nothing l
 
 ## What it does
 
-- Fully offline inference via llama.cpp (GGUF models) — no internet after setup
+- Fully offline inference and no internet after setup
 - 20+ AI personas across productivity, code, education, healthcare, lifestyle
 - Browse and download models from Hugging Face directly in-app
 - Metal GPU acceleration on iOS, voice mode, document scanning
