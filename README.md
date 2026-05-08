@@ -7,51 +7,67 @@ Chat with open-source AI models on your phone. No account, no subscription. Mode
 | Platform | File | Size |
 |----------|------|------|
 | Android | [Bud-v1.0.2.apk](./Bud-v1.0.2.apk) | ~70 MB |
-| iOS | [Bud-v1.0.2.ipa](./Bud-v1.0.2.ipa) | ~13 MB |
+| iOS | [Bud-v1.0.3.ipa](./Bud-v1.0.3.ipa) | ~13 MB |
+
+---
 
 ## Install on Android
 
-1. Download `Bud-v1.0.1.apk` to your device.
-2. Tap the file in your file manager.
-3. If prompted, enable **Install unknown apps** for your file manager or browser.
-4. Tap **Install**.
+1. Download **Bud-v1.0.2.apk** to your Android phone.
+2. Tap the downloaded file in your browser or Files app.
+3. If prompted, tap **Settings** and enable **Install unknown apps**, then go back and tap **Install**.
+4. Open **Bud** from your home screen.
 
-Requires Android 7.0+ (API 24), ARM64 only. All modern Android phones qualify.
+Requires Android 7.0+, ARM64 (all phones from 2017 onward).
 
-## Install on iOS
+---
 
-iOS requires sideloading. Use one of these free tools:
+## Install on iOS (iPhone / iPad)
 
-**AltStore** ([altstore.io](https://altstore.io))
-1. Install AltStore on your Mac or PC.
-2. Connect your iPhone via USB.
-3. In AltStore, tap **+** and select `Bud-v1.0.1.ipa`.
-4. Sign in with your Apple ID (used for local signing only).
-5. On your iPhone, go to **Settings > General > VPN & Device Management** and trust the certificate.
+iOS requires a free tool on your computer to sideload the IPA. **Sideloadly** is the easiest.
 
-**Sideloadly** ([sideloadly.io](https://sideloadly.io))
-1. Install Sideloadly on your Mac or PC.
-2. Connect your iPhone, select the IPA, and click **Start**.
-3. Enter your Apple ID when prompted.
-4. Trust the certificate on your iPhone under **Settings > General > VPN & Device Management**.
+### Option 1: Sideloadly (Recommended)
 
-Free Apple IDs need re-sideloading every 7 days. Paid developer accounts last 1 year.
+1. Download **[Sideloadly](https://sideloadly.io)** on your Mac or Windows PC.
+2. Connect your iPhone with a USB cable.
+3. Drag **Bud-v1.0.3.ipa** into the Sideloadly window.
+4. Enter your Apple ID when prompted (used only for local signing).
+5. Click **Start**. The app installs in about a minute.
+6. On iPhone: **Settings > General > VPN & Device Management** > tap your Apple ID > **Trust**.
+7. Open **Bud**.
 
+Free Apple ID: repeat every 7 days (one click in Sideloadly). Paid developer account: valid 1 year.
+
+### Option 2: AltStore
+
+1. Download **[AltStore](https://altstore.io)** and install AltServer on your Mac or PC.
+2. Connect your iPhone via USB, open AltServer > Install AltStore > select your device.
+3. Open AltStore on iPhone, tap **+**, and select **Bud-v1.0.3.ipa**.
+4. Trust the certificate: **Settings > General > VPN & Device Management**.
+
+Same 7-day refresh for free Apple IDs.
+
+---
 
 ## First Launch
 
-Go to the **Models** tab and download a GGUF model from Hugging Face. Requires Wi-Fi and storage space depending on the model you choose.
+Accept the Terms of Use, then go to the **Models** tab to download a GGUF model from Hugging Face. Requires Wi-Fi. Model sizes range from 500 MB to several GB.
 
-## Cloud Sync (Buds Catalog)
+---
 
-Bud includes a **Buds** feature: a shared catalog of AI personas with custom names, icons, and system prompts. This is the only part of the app that touches a server.
+## Privacy
 
-- The catalog is fetched from a shared Supabase database on launch and synced periodically in the background.
-- Your conversations stay on your device and are never sent anywhere.
-- If you create and publish a Bud, its name, description, system prompt, and icon are uploaded to the shared database and are visible to all users immediately. There is no moderation.
-- If you never publish a Bud, nothing from your device is uploaded.
-- There is no login. The app uses an anonymous Supabase key. Treat anything you publish as fully public.
+- Conversations stay on your device and are never sent anywhere.
+- The Buds catalog (AI personas) is synced from a shared database on launch. That is the only network request the app makes by default.
+- Publishing a Bud uploads its name, icon, description, and system prompt to the shared database. It is immediately visible to all users. No moderation. Treat it as fully public.
+- No login. No analytics. No tracking.
 
-## Version
+---
 
-`v1.0.2` released May 2026
+## Version History
+
+| Version | Notes |
+|---------|-------|
+| v1.0.3 | Report buds, Terms of Use on first launch, manual Publish to Community, Offline AI branding, maintenance mode |
+| v1.0.2 | Supabase delta sync, Create Bud screen, AppBar create button |
+| v1.0.1 | Initial release |
