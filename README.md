@@ -6,8 +6,8 @@ Private, on-device AI for iOS and Android. No cloud. No subscriptions. Nothing l
 
 | Platform | File |
 |----------|------|
-| Android (APK) | [Bud-v1.0.3.apk](./Bud-v1.0.3.apk) |
-| iOS (IPA) | [Bud-v1.0.3.ipa](./Bud-v1.0.3.ipa) |
+| Android (APK) | [Bud-v1.0.4.apk](./Bud-v1.0.4.apk) |
+| iOS (IPA) | [Bud-v1.0.4.ipa](./Bud-v1.0.4.ipa) |
 
 **Android:** Tap the APK, enable "Install unknown apps" if prompted.  
 **iOS:** Sideload with [Sideloadly](https://sideloadly.io) or [AltStore](https://altstore.io). After install: Settings > General > VPN & Device Management > Trust.
@@ -41,6 +41,7 @@ Conversations stay on-device. The only network request is syncing the Bud catalo
 
 | Version | Notes |
 |---------|-------|
+| v1.0.4 | Freewill AI personas, conditional glass footer bar, full-height filter drawer, curated model icons in chat history, share export icon |
 | v1.0.3 | Capability icons on model cards, custom toast notifications, inference chip with info drawer, scan fix, settings auto-sync after model load, low-end device memory fixes |
 | v1.0.2 | Supabase delta sync, Create Bud screen |
 | v1.0.1 | Initial release |
